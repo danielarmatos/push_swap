@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-// VE O COMPRIMENTO DA ARR STRING E ENVIA ISSO SEMPRE COMO PARAMENTRO E NAO USES WHILE(ARR[I])
-
 void	free_array(char **arr)
 {
 	int	i;
@@ -24,22 +22,22 @@ void	free_array(char **arr)
 		free(arr[i]);
 		i++;
 	}
+	free(arr);
 }
 
-int	check_doubles(int **arr)
+int	check_doubles(int *arr, int len)
 {
 	int	i;
 	int j;
 
 	i = 0;
-	ft_printf("====\n");
-	while (*arr[i])
+	while (i < len)
 	{
-		ft_printf("%i\n", *arr[i]);
+		ft_printf("%i\n", arr[i]);
 		j = 0;
 		while (j < i)
 		{
-			if (*arr[i] == *arr[j])
+			if (arr[i] == arr[j])
 				return (0);
 			j++;
 		}
@@ -48,19 +46,16 @@ int	check_doubles(int **arr)
 	return (1);
 }
 
-int	*convert_to_int(char **arr)
+int	*convert_to_int(char **arr, int len)
 {
 	int	*int_arr;
 	int	i;
 
 	i = 0;
-	while (arr[i])
-		i++;
-	int_arr = (int **) ft_calloc(i, sizeof(int *));
+	int_arr = (int *) ft_calloc(len, sizeof(int));
 	if (!int_arr)
 		return (0);
-	i = 0;
-	while (arr[i])
+	while (i < len)
 	{
 		int_arr[i] = ft_atoi(arr[i]);
 		ft_printf("%i\n", int_arr[i]);
@@ -69,14 +64,14 @@ int	*convert_to_int(char **arr)
 	return (int_arr);
 }
 
-int check_if_numbers(char **arr)
+int check_if_numbers(char **arr, int len)
 {
     int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (arr[i])
+	while (i < len)
 	{
 		j = 0;
 		while (arr[i][j])
@@ -93,30 +88,31 @@ int check_if_numbers(char **arr)
 
 void	push_swap(char **arr)
 {
-	int	**int_arr;
+	int	*int_arr;
+	int	len;
 
-	if (check_if_numbers(arr) == 1)
+	len = 0;
+	while (arr[len])
+		len++;
+	if (check_if_numbers(arr, len) == 1)
 	{
 		ft_printf("All arguments are integers.\n");
-		int_arr = convert_to_int(arr);
-		if (check_doubles(int_arr) == 1)
+		int_arr = convert_to_int(arr, len);
+		if (check_doubles(int_arr, len) == 1)
 			ft_printf("No duplicated numbers\n");
 		else
 			ft_printf("Error\nDuplicated numbers.\n");
-		free (int_arr);
+		free(int_arr);
 	}
 	else
-		ft_printf("Error\nSome arguments aren’t integers.\n");
+		ft_printf("Error\nSome arguments aren't integers.\n");
 }
 
 int	main(int argc, char **argv)
 {
 	char	**arr;
-	//int		i;
 
-	if (argc < 2)
-		return (0);
-	else
+	if (argc > 1)
 	{
 		if (argc == 2)
 			arr = ft_split(argv[1], ' ');
@@ -124,41 +120,7 @@ int	main(int argc, char **argv)
 			arr = argv + 1;
 		push_swap(arr);
 		if (argc == 2)
-		{
-			/*
-			arr = ft_split(argv[1], ' ');
-			i = 0;
-			while (arr[i])
-			{
-				ft_printf("%s", arr[i]);
-				ft_printf("\n");
-				i++;
-			}*/
-			//push_swap(arr);
 			free_array(arr);
-		
-		}
-		else if (argc > 2)
-		{
-			/*
-			arr = (char **) malloc(sizeof(char *) * (argc - 1));
-			if (!arr)
-				return (0);
-			i = 0;
-			while (i < (argc))
-			{
-				arr[i] = argv[i + 1];
-				i++;
-			}
-			i = 0;
-			while (arr[i])
-			{
-				ft_printf("%s", arr[i]);
-				ft_printf("\n");
-				i++;
-			}*/
-			//push_swap(arr);
-		}
-	//	free(arr);
 	}
+	return (0);
 }
