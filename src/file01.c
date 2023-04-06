@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:45:58 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/06 19:52:21 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:15:50 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	create_linked_list(int *int_arr, int len)
 		ft_printf("%i\n", stack->nb);
 		stack = stack->next;
 	}
+    sort_list(head, len);
     while (head)
     {
         stack = head;
