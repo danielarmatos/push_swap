@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dreis-ma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:25:19 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/03/28 18:25:21 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:28:10 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -23,5 +24,12 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
+
+int	check_doubles(int *arr, int len);
+int	*convert_to_int(char **arr, int len);
+int check_if_numbers(char **arr, int len);
+
+void	create_linked_list(int *int_arr, int len);
+t_stack	*new_node(int nb, t_stack *next_stack);
 
 #endif
