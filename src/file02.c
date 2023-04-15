@@ -12,7 +12,13 @@
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *stack, int len)
+t_stack	*sort_five(t_stack *stack_a, t_stack *stack_b)
+{
+	stack_a = push(stack_a, stack_b, 'a');
+	return (stack_a);
+}
+
+t_stack	*sort_three(t_stack *stack)
 {
 	int	a;
 	int	b;
@@ -23,28 +29,28 @@ void	sort_three(t_stack *stack, int len)
 	c = stack->next->next->nb;
 	if (a < b && b > c && a < c)
 	{
-		reverse_rotate(stack, len, 'a');
+		reverse_rotate(stack, 3, 'a');
 		swap(stack, 'a');
 	}
 	else if (a > b && b < c && a < c)
 		swap(stack, 'a');
 	else if (a < b && b > c && a > c)
-		reverse_rotate(stack, len, 'a');
+		reverse_rotate(stack, 3, 'a');
 	else if (a > b && b > c && a > c)
 	{
 		swap(stack, 'a');
-		reverse_rotate(stack, len, 'a');
+		reverse_rotate(stack, 3, 'a');
 	}
 	else
-		rotate(stack, len, 'a');
-
-	
+		rotate(stack, 3, 'a');
+	return (stack);
 }
 
-void	sort_two(t_stack *stack)
+t_stack	*sort_two(t_stack *stack)
 {
 	if (stack->nb > stack->next->nb)
 		swap(stack, 'a');
+	return (stack);
 }
 
 int	check_if_sorted(t_stack *stack, int len)
@@ -63,21 +69,26 @@ int	check_if_sorted(t_stack *stack, int len)
 }
 
 
-void	sort_list(t_stack *head, int len)
+t_stack	*sort_list(t_stack *head, int len)
 {
-	t_stack	*stack;
+	t_stack *stack_b;
 
-	stack = head;
-	if (check_if_sorted(stack, len) == 1)
+	stack_b = NULL;
+	if (check_if_sorted(head, len) == 1)
+	{
 		ft_printf("\nList is sorted.");
+		return (head);
+	}
 	else
 	{
 		ft_printf("\nList is NOT sorted.\n\n");
 		if (len == 2)
-			sort_two(stack);
+			return (sort_two(head));
 		if (len == 3)
-			sort_three(head, len);
-		/*if (len > 3)
-			rotate(head, len, 'a');*/
+			return (sort_three(head));
+		if (len == 5)
+			return (sort_five(head, stack_b));
+		else
+			return (head);
 	}
 }

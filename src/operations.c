@@ -65,3 +65,21 @@ void	reverse_rotate(t_stack *stack, int len, char name)
 		ft_printf("rrb\n");
 }
 
+t_stack	*push(t_stack *stack_1, t_stack *stack_2, char name)
+{
+	t_stack	*temp;
+	(void)stack_2;
+
+	if (!stack_1)
+		return (stack_1);
+	temp = stack_1;
+	stack_1 = temp->next;
+	stack_1->prev = temp->prev;
+	stack_1->prev->next = stack_1;
+	ft_printf("lala: %i, %i, %i\n", stack_1->nb, temp->prev->nb, stack_1->prev->next->nb);
+	if (name == 'a')
+		ft_printf("pa\n");
+	else
+		ft_printf("pb\n");
+	return (stack_1);
+}

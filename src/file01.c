@@ -69,7 +69,7 @@ void	create_linked_list(int *int_arr, int len)
 		stack = stack->next;
 		i++;
 	}
-	sort_list(head, len);
+	head = sort_list(head, len);
 	ft_printf("\nSorted:\n");
 	i = 0;
 	while (i < len)
