@@ -6,7 +6,7 @@
 #    By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 20:32:35 by dreis-ma          #+#    #+#              #
-#    Updated: 2023/04/06 19:54:44 by dreis-ma         ###   ########.fr        #
+#    Updated: 2023/04/08 14:57:12 by dreis-ma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 DEPS = libft/libft.a
 
-SRC = src/push_swap.c src/validation.c  src/file01.c src/file02.c
+SRC = src/push_swap.c src/validation.c  src/file01.c src/file02.c src/operations.c
 
 OBJ = $(SRC:.c=.o)
 

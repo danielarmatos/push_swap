@@ -6,55 +6,79 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:45:58 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/06 20:15:50 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:18:40 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    push_list(t_stack **stack, int nb)
+void	link_first(t_stack *head)
 {
-    t_stack *temp;
+	t_stack *stack;
 
-    temp = (t_stack *) malloc(sizeof(t_stack));
-    temp->nb = nb;
-    temp->next = *stack;
-    *stack = temp;
+	stack = head;
+	while (stack->next)
+	{
+		stack = stack->next;
+	}
+	stack->next = head;
+	head->prev = stack;
 }
 
-t_stack *create_list(int *int_arr, int len)
+void	push_list(t_stack **stack, int nb)
 {
-    t_stack *head;
+	t_stack	*temp;
 
-    head = NULL;
-    ft_printf("\nlen: %i\n", len);
-    while (len > 0)
-    {
-        push_list(&head, int_arr[len - 1]);
-        len--;
-    }
-    return (head);
+	temp = (t_stack *) malloc(sizeof(t_stack));
+	temp->nb = nb;
+	temp->next = *stack;
+	if (temp->next)
+		temp->next->prev = temp;
+	temp->first = 0;
+	*stack = temp;
+}
+
+t_stack	*create_list(int *int_arr, int len)
+{
+	t_stack	*head;
+
+	head = NULL;
+	ft_printf("Len: %i\n", len);
+	while (len > 0)
+	{
+		push_list(&head, int_arr[len - 1]);
+		len--;
+	}
+	link_first(head);
+	return (head);
 }
 
 void	create_linked_list(int *int_arr, int len)
 {
 	t_stack	*head;
 	t_stack	*stack;
+	int 	i;
 
 	head = create_list(int_arr, len);
+	head->first = 1;
 	stack = head;
 	ft_printf("\nlinked list:\n");
-	while (stack)
+	i = 0;
+	while (i < len)
 	{
 		ft_printf("%i\n", stack->nb);
 		stack = stack->next;
+		i++;
 	}
-    sort_list(head, len);
-    while (head)
-    {
-        stack = head;
-        head = head->next;
-        free (stack);
-    }
-    free (head);
+	sort_list(head, len);
+	ft_printf("\n\nSorted:\n");
+	i = 0;
+	while (i < len)
+	{
+		stack = head;
+		ft_printf("%i\n", head->nb);
+		head = head->next;
+		free (stack);
+		i++;
+	}
 }

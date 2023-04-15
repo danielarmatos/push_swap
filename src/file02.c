@@ -6,12 +6,12 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:54:33 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/11 19:49:51 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:54:55 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void	sort_three(t_stack *stack, int len)
 {
 	int	a;
@@ -26,7 +26,7 @@ void	sort_three(t_stack *stack, int len)
 		swap_a(stack);
 	}
 	
-}
+}*/
 
 void	sort_two(t_stack *stack)
 {
@@ -52,14 +52,14 @@ void	sort_list(t_stack *head, int len)
 	t_stack	*stack;
 
 	stack = head;
-	if (check_if_sorted(head) == 1)
+	if (check_if_sorted(stack) == 1)
 		ft_printf("List is sorted.");
 	else
 	{
 		if (len == 2)
-			sort_two(head);
-		if (len == 3)
-			sort_three(head, len);
+			sort_two(stack);
+	//	if (len == 3)
+	//		sort_three(head, len);
 		ft_printf("List is NOT sorted.");
 	}
 }
