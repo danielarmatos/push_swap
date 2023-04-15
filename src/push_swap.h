@@ -34,7 +34,8 @@ void	create_linked_list(int *int_arr, int len);
 t_stack	*new_node(int nb, t_stack *next_stack);
 void	sort_list(t_stack *head, int len);
 
-void	swap_a(t_stack *stack);
-void	rra(t_stack *stack, int len);
+void	swap(t_stack *stack, char name);
+void	rotate(t_stack *stack, int len, char name);
+void	reverse_rotate(t_stack *stack, int len, char name);
 
 #endif

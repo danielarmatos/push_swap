@@ -43,7 +43,6 @@ t_stack	*create_list(int *int_arr, int len)
 	t_stack	*head;
 
 	head = NULL;
-	ft_printf("Len: %i\n", len);
 	while (len > 0)
 	{
 		push_list(&head, int_arr[len - 1]);
@@ -62,7 +61,7 @@ void	create_linked_list(int *int_arr, int len)
 	head = create_list(int_arr, len);
 	head->first = 1;
 	stack = head;
-	ft_printf("\nlinked list:\n");
+	ft_printf("linked list:\n");
 	i = 0;
 	while (i < len)
 	{
@@ -71,7 +70,7 @@ void	create_linked_list(int *int_arr, int len)
 		i++;
 	}
 	sort_list(head, len);
-	ft_printf("\n\nSorted:\n");
+	ft_printf("\nSorted:\n");
 	i = 0;
 	while (i < len)
 	{

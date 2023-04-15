@@ -12,34 +12,56 @@
 
 #include "push_swap.h"
 
-void	swap_a(t_stack *stack)
+void	swap(t_stack *stack, char name)
 {
 	int	temp;
 
 	temp = stack->nb;
 	stack->nb = stack->next->nb;
 	stack->next->nb = temp;
-	ft_printf("sa\n");
+	if (name == 'a')
+		ft_printf("sa\n");
+	else
+		ft_printf("sb\n");
 }
 
-void	rra(t_stack *stack, int len)
+void	rotate(t_stack *stack, int len, char name)
 {
 	int	temp1;
-	int	i;
-	//int	temp2;
+	int temp2;
 
-	i = 0;
-	temp1 = 0;
-	ft_printf("\nrra\n");
-	//while (len > 0)
-	while (i < 3)
+	temp1 = stack->next->nb;
+	while (len > 0)
 	{
+		temp2 = stack->nb;
 		stack->nb = temp1;
-		temp1 = stack->next->nb;
-		stack->next->nb = stack->nb;
+		temp1 = temp2;
+		stack = stack->prev;
+		len--;
+	}
+	if (name == 'a')
+		ft_printf("ra\n");
+	else
+		ft_printf("rb\n");
+}
+
+void	reverse_rotate(t_stack *stack, int len, char name)
+{
+	int	temp1;
+	int temp2;
+
+	temp1 = stack->prev->nb;
+	while (len > 0)
+	{
+		temp2 = stack->nb;
+		stack->nb = temp1;
+		temp1 = temp2;
 		stack = stack->next;
 		len--;
-		i++;
-		ft_printf("%i, %i\n", stack->nb, stack->next->nb);
 	}
+	if (name == 'a')
+		ft_printf("rra\n");
+	else
+		ft_printf("rrb\n");
 }
+
