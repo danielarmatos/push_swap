@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-t_stack	*sort_five(t_stack *stack_a, t_stack *stack_b)
+
+void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
-	stack_a = push(stack_a, stack_b, 'a');
-}*/
+	push(stack_a, stack_b, 'a');
+	push(stack_a, stack_b, 'a');
+	push(stack_a, stack_b, 'a');
+}
 
 void	sort_three(t_stack **stack)
 {
@@ -70,6 +72,7 @@ int	check_if_sorted(t_stack *stack, int len)
 void	sort_list(t_stack **stack_a, int len)
 {
 	t_stack **stack_b;
+	//int nb;
 
 	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
 	if (check_if_sorted((*stack_a), len) == 1)

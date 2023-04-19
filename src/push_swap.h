@@ -36,6 +36,6 @@ void	sort_list(t_stack **stack_a, int len);
 void	swap(t_stack **stack, char name);
 void	rotate(t_stack **stack, int len, char name);
 void	reverse_rotate(t_stack **stack, int len, char name);
-t_stack	*push(t_stack **stack_1, t_stack **stack_2, char name);
+void	push(t_stack **stack_1, t_stack **stack_2, char name);
 
 #endif

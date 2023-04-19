@@ -64,22 +64,41 @@ void	reverse_rotate(t_stack **stack, int len, char name)
 	else
 		ft_printf("rrb\n");
 }
-/*
-t_stack	*push(t_stack **stack_1, t_stack *stack_2, char name)
+
+void	push(t_stack **stack_1, t_stack **stack_2, char name)
 {
 	t_stack	*temp;
-	(void)stack_2;
+	t_stack *node;
+	int 	nb;
 
-	if (!stack_1)
-		return (stack_1);
-	temp = stack_1;
-	stack_1 = temp->next;
-	stack_1->prev = temp->prev;
-	stack_1->prev->next = stack_1;
-	ft_printf("lala: %i, %i, %i\n", stack_1->nb, temp->prev->nb, stack_1->prev->next->nb);
+	temp = (*stack_1);
+	(*stack_1) = temp->next;
+	(*stack_1)->prev = temp->prev;
+	(*stack_1)->prev->next = (*stack_1);
+
+	if (!(*stack_2))
+	{
+		temp->next = temp;
+		temp->prev = temp;
+		(*stack_2) = temp;
+	}
+	else
+	{
+		temp->next = (*stack_2);
+		node = (*stack_2);
+		nb = node->nb;
+		while (node->next->nb != nb)
+			node = node->next;
+		(*stack_2)->prev = temp;
+		temp->prev = node;
+		node->next = temp;
+		(*stack_2) = temp;
+	}
+
+	ft_printf("lala: %i, %i, %i\n", (*stack_1)->nb, temp->prev->nb, (*stack_1)->prev->next->nb);
+	ft_printf("\nstack_2: %i %i %i\n", (*stack_2)->nb, (*stack_2)->next->nb, (*stack_2)->next->next->nb);
 	if (name == 'a')
 		ft_printf("pa\n");
 	else
 		ft_printf("pb\n");
-	return (stack_1);
-}*/
+}
