@@ -11,22 +11,21 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 t_stack	*sort_five(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a = push(stack_a, stack_b, 'a');
-	return (stack_a);
-}
+}*/
 
-t_stack	*sort_three(t_stack *stack)
+void	sort_three(t_stack **stack)
 {
 	int	a;
 	int	b;
 	int c;
 
-	a = stack->nb;
-	b = stack->next->nb;
-	c = stack->next->next->nb;
+	a = (*stack)->nb;
+	b = (*stack)->next->nb;
+	c = (*stack)->next->next->nb;
 	if (a < b && b > c && a < c)
 	{
 		reverse_rotate(stack, 3, 'a');
@@ -43,14 +42,13 @@ t_stack	*sort_three(t_stack *stack)
 	}
 	else
 		rotate(stack, 3, 'a');
-	return (stack);
 }
 
-t_stack	*sort_two(t_stack *stack)
+
+void	sort_two(t_stack **stack)
 {
-	if (stack->nb > stack->next->nb)
+	if ((*stack)->nb > (*stack)->next->nb)
 		swap(stack, 'a');
-	return (stack);
 }
 
 int	check_if_sorted(t_stack *stack, int len)
@@ -69,26 +67,23 @@ int	check_if_sorted(t_stack *stack, int len)
 }
 
 
-t_stack	*sort_list(t_stack *head, int len)
+void	sort_list(t_stack **stack_a, int len)
 {
-	t_stack *stack_b;
+	t_stack **stack_b;
 
-	stack_b = NULL;
-	if (check_if_sorted(head, len) == 1)
+	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
+	if (check_if_sorted((*stack_a), len) == 1)
 	{
-		ft_printf("\nList is sorted.");
-		return (head);
+		ft_printf("\nList is sorted.\n");
 	}
 	else
 	{
 		ft_printf("\nList is NOT sorted.\n\n");
 		if (len == 2)
-			return (sort_two(head));
+			sort_two(stack_a);
 		if (len == 3)
-			return (sort_three(head));
+			sort_three(stack_a);
 		if (len == 5)
-			return (sort_five(head, stack_b));
-		else
-			return (head);
+			sort_five(stack_a, stack_b);
 	}
 }

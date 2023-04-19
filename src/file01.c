@@ -12,72 +12,69 @@
 
 #include "push_swap.h"
 
-void	link_first(t_stack *head)
+void	link_first(t_stack **stack)
 {
-	t_stack *stack;
+	t_stack *node;
 
-	stack = head;
-	while (stack->next)
-	{
-		stack = stack->next;
-	}
-	stack->next = head;
-	head->prev = stack;
+	node = (*stack);
+	while (node->next)
+		node = node->next;
+	node->next = (*stack);
+	(*stack)->prev = node;
 }
 
-void	push_list(t_stack **stack, int nb)
+void	add_node(t_stack **stack, t_stack *new_node)
 {
-	t_stack	*temp;
-
-	temp = (t_stack *) malloc(sizeof(t_stack));
-	temp->nb = nb;
-	temp->next = *stack;
-	if (temp->next)
-		temp->next->prev = temp;
-	temp->first = 0;
-	*stack = temp;
+	new_node->next = *stack;
+	if(new_node->next)
+		new_node->next->prev = new_node;
+	*stack = new_node;
 }
 
-t_stack	*create_list(int *int_arr, int len)
+t_stack *create_node(int nb)
 {
-	t_stack	*head;
+	t_stack *node;
 
-	head = NULL;
-	while (len > 0)
-	{
-		push_list(&head, int_arr[len - 1]);
-		len--;
-	}
-	link_first(head);
-	return (head);
+	node = malloc(sizeof(t_stack));
+	node->nb = nb;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }
 
 void	create_linked_list(int *int_arr, int len)
 {
-	t_stack	*head;
-	t_stack	*stack;
+	t_stack	**stack_a;
+	t_stack	*node;
 	int 	i;
 
-	head = create_list(int_arr, len);
-	head->first = 1;
-	stack = head;
-	ft_printf("linked list:\n");
+	i = len;
+	stack_a = (t_stack **) malloc(sizeof(t_stack *) * len);
+	while (len > 0)
+	{
+		add_node(stack_a, create_node(int_arr[len - 1]));
+		len--;
+	}
+	link_first(stack_a);
+	len = i;
 	i = 0;
+	node = (*stack_a);
 	while (i < len)
 	{
-		ft_printf("%i\n", stack->nb);
-		stack = stack->next;
+		ft_printf("%i\n", node->nb);
+		node = node->next;
 		i++;
 	}
-	head = sort_list(head, len);
-	ft_printf("\nSorted:\n");
 	i = 0;
+	sort_list(stack_a, len);
+	node = (*stack_a);
 	while (i < len)
 	{
-		stack = head;
-		ft_printf("%i\n", head->nb);
-		head = head->next;
-		free (stack);
+		node = (*stack_a);
+		ft_printf("%i\n", (*stack_a)->nb);
+		(*stack_a) = (*stack_a)->next;
+		free (node);
 		i++;
 	}
+	free(stack_a);
 }

@@ -12,31 +12,31 @@
 
 #include "push_swap.h"
 
-void	swap(t_stack *stack, char name)
+void	swap(t_stack **stack, char name)
 {
 	int	temp;
 
-	temp = stack->nb;
-	stack->nb = stack->next->nb;
-	stack->next->nb = temp;
+	temp = (*stack)->nb;
+	(*stack)->nb = (*stack)->next->nb;
+	(*stack)->next->nb = temp;
 	if (name == 'a')
 		ft_printf("sa\n");
 	else
 		ft_printf("sb\n");
 }
 
-void	rotate(t_stack *stack, int len, char name)
+void	rotate(t_stack **stack, int len, char name)
 {
 	int	temp1;
 	int temp2;
 
-	temp1 = stack->next->nb;
+	temp1 = (*stack)->next->nb;
 	while (len > 0)
 	{
-		temp2 = stack->nb;
-		stack->nb = temp1;
+		temp2 = (*stack)->nb;
+		(*stack)->nb = temp1;
 		temp1 = temp2;
-		stack = stack->prev;
+		(*stack) = (*stack)->prev;
 		len--;
 	}
 	if (name == 'a')
@@ -45,18 +45,18 @@ void	rotate(t_stack *stack, int len, char name)
 		ft_printf("rb\n");
 }
 
-void	reverse_rotate(t_stack *stack, int len, char name)
+void	reverse_rotate(t_stack **stack, int len, char name)
 {
 	int	temp1;
 	int temp2;
 
-	temp1 = stack->prev->nb;
+	temp1 = (*stack)->prev->nb;
 	while (len > 0)
 	{
-		temp2 = stack->nb;
-		stack->nb = temp1;
+		temp2 = (*stack)->nb;
+		(*stack)->nb = temp1;
 		temp1 = temp2;
-		stack = stack->next;
+		(*stack) = (*stack)->next;
 		len--;
 	}
 	if (name == 'a')
@@ -64,8 +64,8 @@ void	reverse_rotate(t_stack *stack, int len, char name)
 	else
 		ft_printf("rrb\n");
 }
-
-t_stack	*push(t_stack *stack_1, t_stack *stack_2, char name)
+/*
+t_stack	*push(t_stack **stack_1, t_stack *stack_2, char name)
 {
 	t_stack	*temp;
 	(void)stack_2;
@@ -82,4 +82,4 @@ t_stack	*push(t_stack *stack_1, t_stack *stack_2, char name)
 	else
 		ft_printf("pb\n");
 	return (stack_1);
-}
+}*/

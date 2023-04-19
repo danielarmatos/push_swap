@@ -23,7 +23,6 @@ typedef struct s_stack
 	int				nb;
 	struct s_stack	*prev;
 	struct s_stack	*next;
-	int				first;
 }					t_stack;
 
 int		check_doubles(int *arr, int len);
@@ -32,11 +31,11 @@ int		check_if_numbers(char **arr, int len);
 
 void	create_linked_list(int *int_arr, int len);
 t_stack	*new_node(int nb, t_stack *next_stack);
-t_stack	*sort_list(t_stack *head, int len);
+void	sort_list(t_stack **stack_a, int len);
 
-void	swap(t_stack *stack, char name);
-void	rotate(t_stack *stack, int len, char name);
-void	reverse_rotate(t_stack *stack, int len, char name);
-t_stack	*push(t_stack *stack_1, t_stack *stack_2, char name);
+void	swap(t_stack **stack, char name);
+void	rotate(t_stack **stack, int len, char name);
+void	reverse_rotate(t_stack **stack, int len, char name);
+t_stack	*push(t_stack **stack_1, t_stack **stack_2, char name);
 
 #endif
