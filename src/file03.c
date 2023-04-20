@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:45:51 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 21:54:47 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/20 22:07:33 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	sort_middle(t_stack **stack_a, t_stack **stack_b)
 		if ((*stack_a)->nb > max || (*stack_a)->nb < min)
 		{
 			push(stack_a, stack_b, 'b');
-			if ((*stack_b)->nb > max)
+			if ((*stack_b)->nb < min)
 				rotate(stack_b, get_stack_len(stack_b), 'b');
 		}
 		else if ((*stack_a)->prev->nb > max || (*stack_a)->prev->nb < min)
 		{
 			reverse_rotate(stack_a, get_stack_len(stack_a), 'a');
 			push(stack_a, stack_b, 'b');
-			if ((*stack_b)->nb > max)
+			if ((*stack_b)->nb < min)
 				rotate(stack_b, get_stack_len(stack_b), 'b');
 		}
 		else
