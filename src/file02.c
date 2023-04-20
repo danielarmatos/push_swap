@@ -12,11 +12,10 @@
 
 #include "push_swap.h"
 
-void	sort_five(t_stack **stack_a, t_stack **stack_b)
+void	sort_two(t_stack **stack)
 {
-	push(stack_a, stack_b, 'a');
-	push(stack_a, stack_b, 'a');
-	push(stack_a, stack_b, 'a');
+	if ((*stack)->nb > (*stack)->next->nb)
+		swap(stack, 'a');
 }
 
 void	sort_three(t_stack **stack)
@@ -46,12 +45,82 @@ void	sort_three(t_stack **stack)
 		rotate(stack, 3, 'a');
 }
 
-
-void	sort_two(t_stack **stack)
+void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack)->nb > (*stack)->next->nb)
-		swap(stack, 'a');
+	push(stack_a, stack_b, 'a');
+	push(stack_a, stack_b, 'a');
+	sort_three(stack_a);
+	push(stack_b, stack_a, 'b');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	{
+		//	ft_printf("\nHello: \ncurr: %i\nnext: %i\n prev: %i\n", (*stack_a)->nb, (*stack_a)->next->nb, (*stack_a)->prev->nb);
+		if ((*stack_a)->nb > (*stack_a)->prev->nb)
+			rotate(stack_a, 4, 'a');
+		else if (((*stack_a)->nb > (*stack_a)->next->nb) && ((*stack_a)->nb < (*stack_a)->next->next->nb))
+			swap(stack_a, 'a');
+		else
+		{
+			reverse_rotate(stack_a, 4, 'a');
+			swap(stack_a, 'a');
+			rotate(stack_a, 4, 'a');
+			rotate(stack_a, 4, 'a');
+		}
+	}
+	push(stack_b, stack_a, 'b');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	{
+		if ((*stack_a)->nb > (*stack_a)->prev->nb)
+			rotate(stack_a, 5, 'a');
+		else
+		{
+			push(stack_a, stack_b, 'b');
+			reverse_rotate(stack_a, 5, 'a');
+			push(stack_b, stack_a, 'a');
+			rotate(stack_a, 5, 'a');
+			rotate(stack_a, 5, 'a');
+
+		}
+	}
 }
+
+/*
+void	sort_five(t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_a, stack_b, 'a');
+	push(stack_a, stack_b, 'a');
+	sort_three(stack_a);
+	push(stack_b, stack_a, 'b');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	{
+	//	ft_printf("\nHello: \ncurr: %i\nnext: %i\n prev: %i\n", (*stack_a)->nb, (*stack_a)->next->nb, (*stack_a)->prev->nb);
+		if ((*stack_a)->nb > (*stack_a)->prev->nb)
+			rotate(stack_a, 4, 'a');
+		else if (((*stack_a)->nb > (*stack_a)->next->nb) && ((*stack_a)->nb < (*stack_a)->next->next->nb))
+			swap(stack_a, 'a');
+		else
+		{
+			reverse_rotate(stack_a, 4, 'a');
+			swap(stack_a, 'a');
+			rotate(stack_a, 4, 'a');
+			rotate(stack_a, 4, 'a');
+		}
+	}
+	push(stack_b, stack_a, 'b');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	{
+		if ((*stack_a)->nb > (*stack_a)->prev->nb)
+			rotate(stack_a, 5, 'a');
+		else
+		{
+			push(stack_a, stack_b, 'b');
+			reverse_rotate(stack_a, 5, 'a');
+			push(stack_b, stack_a, 'a');
+			rotate(stack_a, 5, 'a');
+			rotate(stack_a, 5, 'a');
+
+		}
+	}
+}*/
 
 int	check_if_sorted(t_stack *stack, int len)
 {
@@ -77,11 +146,11 @@ void	sort_list(t_stack **stack_a, int len)
 	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
 	if (check_if_sorted((*stack_a), len) == 1)
 	{
-		ft_printf("\nList is sorted.\n");
+	//	ft_printf("\nList is sorted.\n");
 	}
 	else
 	{
-		ft_printf("\nList is NOT sorted.\n\n");
+	//	ft_printf("\nList is NOT sorted.\n\n");
 		if (len == 2)
 			sort_two(stack_a);
 		if (len == 3)

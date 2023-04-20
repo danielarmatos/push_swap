@@ -94,9 +94,6 @@ void	push(t_stack **stack_1, t_stack **stack_2, char name)
 		node->next = temp;
 		(*stack_2) = temp;
 	}
-
-	ft_printf("lala: %i, %i, %i\n", (*stack_1)->nb, temp->prev->nb, (*stack_1)->prev->next->nb);
-	ft_printf("\nstack_2: %i %i %i\n", (*stack_2)->nb, (*stack_2)->next->nb, (*stack_2)->next->next->nb);
 	if (name == 'a')
 		ft_printf("pa\n");
 	else
