@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:25:19 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 19:07:02 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:31:35 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void	push(t_stack **stack_1, t_stack **stack_2, char name);
 int		get_stack_len(t_stack **stack);
 int		get_max(t_stack **stack);
 int		get_min(t_stack **stack);
+
+void	sort_middle(t_stack **stack_a, t_stack **stack_b);
 
 #endif

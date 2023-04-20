@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:54:33 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 20:33:36 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:32:11 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,32 @@ void	sort_three(t_stack **stack)
 		rotate(stack, 3, 'a');
 }
 
+void	sort_four(t_stack **stack_a, t_stack **stack_b)
+{
+	int	i;
+	int	max;
+	int	min;
+
+	i = 0;
+	max = get_max(stack_a);
+	min = get_min(stack_a);
+	while (i < 4)
+	{
+		if ((*stack_a)->nb == max || (*stack_a)->nb == min)
+		{
+			push(stack_a, stack_b, 'b');
+			break ;
+		}
+		else
+			rotate(stack_a, (get_stack_len(stack_a)), 'a');
+		i++;
+	}
+	sort_three(stack_a);
+	push(stack_b, stack_a, 'a');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+		rotate(stack_a, 5, 'a');
+}
+
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
@@ -81,45 +107,6 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 	//rotate(stack_a, 5, 'a');
 }
 
-/*
-void	sort_five(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_a, stack_b, 'a');
-	push(stack_a, stack_b, 'a');
-	sort_three(stack_a);
-	push(stack_b, stack_a, 'b');
-	if ((*stack_a)->nb > (*stack_a)->next->nb)
-	{
-	//	ft_printf("\nHello: \ncurr: %i\nnext: %i\n prev: %i\n", (*stack_a)->nb, (*stack_a)->next->nb, (*stack_a)->prev->nb);
-		if ((*stack_a)->nb > (*stack_a)->prev->nb)
-			rotate(stack_a, 4, 'a');
-		else if (((*stack_a)->nb > (*stack_a)->next->nb) && ((*stack_a)->nb < (*stack_a)->next->next->nb))
-			swap(stack_a, 'a');
-		else
-		{
-			reverse_rotate(stack_a, 4, 'a');
-			swap(stack_a, 'a');
-			rotate(stack_a, 4, 'a');
-			rotate(stack_a, 4, 'a');
-		}
-	}
-	push(stack_b, stack_a, 'b');
-	if ((*stack_a)->nb > (*stack_a)->next->nb)
-	{
-		if ((*stack_a)->nb > (*stack_a)->prev->nb)
-			rotate(stack_a, 5, 'a');
-		else
-		{
-			push(stack_a, stack_b, 'b');
-			reverse_rotate(stack_a, 5, 'a');
-			push(stack_b, stack_a, 'a');
-			rotate(stack_a, 5, 'a');
-			rotate(stack_a, 5, 'a');
-
-		}
-	}
-}*/
-
 int	check_if_sorted(t_stack *stack, int len)
 {
 	int i;
@@ -151,9 +138,13 @@ void	sort_list(t_stack **stack_a, int len)
 	//	ft_printf("\nList is NOT sorted.\n\n");
 		if (len == 2)
 			sort_two(stack_a);
-		if (len == 3)
+		else if (len == 3)
 			sort_three(stack_a);
-		if (len == 5)
+		else if (len == 4)
+			sort_four(stack_a, stack_b);
+		else if (len == 5)
 			sort_five(stack_a, stack_b);
+		else if (len <= 100)
+			sort_middle(stack_a, stack_b);
 	}
 }
