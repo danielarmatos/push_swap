@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:54:33 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/11 19:54:55 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:33:36 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void	sort_three(t_stack **stack)
 {
 	int	a;
 	int	b;
-	int c;
+	int	c;
 
 	a = (*stack)->nb;
 	b = (*stack)->next->nb;
 	c = (*stack)->next->next->nb;
+	if (a < b && b < c)
+		return ;
 	if (a < b && b > c && a < c)
 	{
 		reverse_rotate(stack, 3, 'a');
@@ -47,40 +49,36 @@ void	sort_three(t_stack **stack)
 
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
-	push(stack_a, stack_b, 'a');
-	push(stack_a, stack_b, 'a');
-	sort_three(stack_a);
-	push(stack_b, stack_a, 'b');
-	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	int	i;
+	int	max;
+	int	min;
+	int	x;
+
+	i = 0;
+	x = 0;
+	max = get_max(stack_a);
+	min = get_min(stack_a);
+	while (i < 5 && x < 2)
 	{
-		//	ft_printf("\nHello: \ncurr: %i\nnext: %i\n prev: %i\n", (*stack_a)->nb, (*stack_a)->next->nb, (*stack_a)->prev->nb);
-		if ((*stack_a)->nb > (*stack_a)->prev->nb)
-			rotate(stack_a, 4, 'a');
-		else if (((*stack_a)->nb > (*stack_a)->next->nb) && ((*stack_a)->nb < (*stack_a)->next->next->nb))
-			swap(stack_a, 'a');
-		else
-		{
-			reverse_rotate(stack_a, 4, 'a');
-			swap(stack_a, 'a');
-			rotate(stack_a, 4, 'a');
-			rotate(stack_a, 4, 'a');
-		}
-	}
-	push(stack_b, stack_a, 'b');
-	if ((*stack_a)->nb > (*stack_a)->next->nb)
-	{
-		if ((*stack_a)->nb > (*stack_a)->prev->nb)
-			rotate(stack_a, 5, 'a');
-		else
+		if ((*stack_a)->nb == max || (*stack_a)->nb == min)
 		{
 			push(stack_a, stack_b, 'b');
-			reverse_rotate(stack_a, 5, 'a');
-			push(stack_b, stack_a, 'a');
-			rotate(stack_a, 5, 'a');
-			rotate(stack_a, 5, 'a');
-
+			x++;
 		}
+		else
+			rotate(stack_a, (get_stack_len(stack_a)), 'a');
+		i++;
 	}
+	sort_three(stack_a);
+	//if ((*stack_b)->nb > (*stack_b)->next->nb)
+	//	swap(stack_b, 'b');
+	push(stack_b, stack_a, 'a');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+		rotate(stack_a, 5, 'a');
+	push(stack_b, stack_a, 'a');
+	if ((*stack_a)->nb > (*stack_a)->next->nb)
+		rotate(stack_a, 5, 'a');
+	//rotate(stack_a, 5, 'a');
 }
 
 /*

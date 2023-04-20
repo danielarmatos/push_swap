@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:45:58 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 19:02:19 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:10:22 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ void	create_linked_list(int *int_arr, int len)
 		i++;
 	}
 	i = 0;
+	get_stack_len(stack_a);
+	get_max(stack_a);
+	get_min(stack_a);
 	sort_list(stack_a, len);
 	node = (*stack_a);
 	while (i < len)
