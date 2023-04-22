@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:54:33 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 21:32:43 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/22 14:31:33 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 
 int	check_if_sorted(t_stack *stack, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < (len - 1))
@@ -125,7 +125,7 @@ int	check_if_sorted(t_stack *stack, int len)
 
 void	sort_list(t_stack **stack_a, int len)
 {
-	t_stack **stack_b;
+	t_stack	**stack_b;
 	//int nb;
 
 	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
