@@ -6,13 +6,13 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 18:47:27 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/06 18:10:42 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:42:15 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	i;
 	long	value;

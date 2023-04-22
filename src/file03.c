@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:45:51 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/22 19:55:56 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:31:58 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,11 @@ void	sort_min_max(t_stack **stack_a, t_stack **stack_b, int i)
 	int	j;
 	int	len;
 
-	j = 1;
+	j = 0;
 	len = get_stack_len(stack_b);
-	while (j < i)
+	if (i <= (len / 2))
 	{
-		rotate(stack_b, len, 'b');
-		j++;
-	}
-/*	if (i <= (len / 2))
-	{
-		while (j <= i)
+		while (j < i)
 		{
 			rotate(stack_b, len, 'b');
 			j++;
@@ -58,12 +53,14 @@ void	sort_min_max(t_stack **stack_a, t_stack **stack_b, int i)
 	}
 	else
 	{
+		i = len - i;
+		j = 0;
 		while (j < i)
 		{
 			reverse_rotate(stack_b, get_stack_len(stack_b), 'b');
 			j++;
 		}
-	}*/
+	}
 	push(stack_a, stack_b, 'b');
 }
 
@@ -77,7 +74,7 @@ int	check_min_max(t_stack **stack_a, t_stack **stack_b)
 	max = get_max(stack_b);
 	min = get_min(stack_b);
 	node = (*stack_b);
-	i = 1;
+	i = 0;
 	if ((*stack_a)->nb > max)
 	{
 		while (node->nb != max)
@@ -122,34 +119,30 @@ void	prepare_to_push(t_stack **stack_a, t_stack **stack_b)
 		i++;
 		node = node->next;
 	}
-	while (j < i)
+	/*while (j < i)
 	{
 		rotate(stack_b, get_stack_len(stack_b), 'b');
 		j++;
 	}
-	push(stack_a, stack_b, 'b');
-	/*if (i <= (len / 2))
+	push(stack_a, stack_b, 'b');*/
+	if (i <= (len / 2))
 	{
-		j = i;
-		i = 1;
-		while (i < j)
+		while (j < i)
 		{
 			rotate(stack_b, get_stack_len(stack_b), 'b');
-			i++;
+			j++;
 		}
-		push(stack_a, stack_b, 'b');
 	}
 	else
 	{
-		j = len - i;
-		i = 0;
-		while (i < j)
+		i = len - i;
+		while (j < i)
 		{
 			reverse_rotate(stack_b, get_stack_len(stack_b), 'b');
-			i++;
+			j++;
 		}
-		push(stack_a, stack_b, 'b');
-	}*/
+	}
+	push(stack_a, stack_b, 'b');
 }
 
 void	sort_middle(t_stack **stack_a, t_stack **stack_b)
