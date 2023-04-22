@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:45:58 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 20:10:22 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/22 12:03:18 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	create_linked_list(int *int_arr, int len)
 	get_min(stack_a);
 	sort_list(stack_a, len);
 	node = (*stack_a);
-	while (i < len)
+	/*while (i < len)
 	{
 		node = (*stack_a);
 	//	ft_printf("%i\n", (*stack_a)->nb);
@@ -79,5 +79,5 @@ void	create_linked_list(int *int_arr, int len)
 		free (node);
 		i++;
 	}
-	free(stack_a);
+	free(stack_a);*/
 }

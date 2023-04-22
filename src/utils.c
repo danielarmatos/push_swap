@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:38:38 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 19:34:15 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/22 13:17:16 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	get_stack_len(t_stack **stack)
 	int		nb;
 	int		len;
 
+	if ((*stack) == NULL)
+		return (0);
 	node = (*stack);
 	nb = node->nb;
 	len = 0;

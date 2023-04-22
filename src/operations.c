@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:56:42 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/08 18:13:05 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/22 13:14:58 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	swap(t_stack **stack, char name)
 void	rotate(t_stack **stack, int len, char name)
 {
 	int	temp1;
-	int temp2;
+	int	temp2;
 
 	temp1 = (*stack)->next->nb;
 	while (len > 0)
@@ -48,7 +48,7 @@ void	rotate(t_stack **stack, int len, char name)
 void	reverse_rotate(t_stack **stack, int len, char name)
 {
 	int	temp1;
-	int temp2;
+	int	temp2;
 
 	temp1 = (*stack)->prev->nb;
 	while (len > 0)
@@ -68,13 +68,20 @@ void	reverse_rotate(t_stack **stack, int len, char name)
 void	push(t_stack **stack_1, t_stack **stack_2, char name)
 {
 	t_stack	*temp;
-	t_stack *node;
-	int 	nb;
+	t_stack	*node;
+	int		nb;
 
 	temp = (*stack_1);
-	(*stack_1) = temp->next;
-	(*stack_1)->prev = temp->prev;
-	(*stack_1)->prev->next = (*stack_1);
+	if (get_stack_len(stack_1) == 1)
+	{
+		(*stack_1) = NULL;
+	}
+	else
+	{
+		(*stack_1) = temp->next;
+		(*stack_1)->prev = temp->prev;
+		(*stack_1)->prev->next = (*stack_1);
+	}
 
 	if (!(*stack_2))
 	{
