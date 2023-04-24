@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:25:19 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/20 21:31:35 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/24 17:49:30 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
+
+typedef struct s_utils
+{
+	struct s_stack	*stack;
+	int				nb;
+	int				best_moves;
+	int				reverse;
+	int				len;
+}					t_utils;
 
 int		check_doubles(int *arr, int len);
 int		*convert_to_int(char **arr, int len);
