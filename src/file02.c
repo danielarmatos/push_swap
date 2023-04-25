@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:54:33 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/22 14:31:33 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:17:02 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void	sort_list(t_stack **stack_a, int len)
 			sort_four(stack_a, stack_b);
 		else if (len == 5)
 			sort_five(stack_a, stack_b);
-		else if (len <= 100)
+		else
 			sort_middle(stack_a, stack_b);
 	}
 }

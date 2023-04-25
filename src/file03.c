@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:45:51 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 18:07:44 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:42:04 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,46 +99,6 @@ int	check_min_max(t_stack **stack_a, t_stack **stack_b)
 	return (0);
 }
 
-/*void	prepare_to_push(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*node;
-	int		len;
-	int		nb;
-	int		i;
-	int		j;
-
-	if (check_min_max(stack_a, stack_b) == 1)
-		return ;
-	node = (*stack_b);
-	len = get_stack_len(stack_b);
-	nb = (*stack_a)->nb;
-	i = 1;
-	j = 0;
-	while (!(nb < node->nb && nb > node->next->nb))
-	{
-		i++;
-		node = node->next;
-	}
-	if (i <= (len / 2))
-	{
-		while (j < i)
-		{
-			rotate(stack_b, get_stack_len(stack_b), 'b');
-			j++;
-		}
-	}
-	else
-	{
-		i = len - i;
-		while (j < i)
-		{
-			reverse_rotate(stack_b, get_stack_len(stack_b), 'b');
-			j++;
-		}
-	}
-	push(stack_a, stack_b, 'b');
-}*/
-
 void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
 {
 	t_stack	*node;
@@ -215,18 +175,18 @@ void	check_best_move(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	node_a = (*stack_a);
 	i = 0;
-	while (i <= 8)
+	while (i <= (utils->len_a / 2))
 	{
 		node_b = (*stack_b);
 		if (node_a->nb < utils->max && node_a->nb > utils->min)
 			check_best_move2(node_a, node_b, utils);
 		utils->curr_moves = utils->curr_moves + 1;
-		if (i == 4)
+		if (i == (utils->len_a / 4))
 		{
 			utils->curr_moves = 1;
 			node_a = (*stack_a)->prev;
 		}
-		else if (i < 4)
+		else if (i < (utils->len_a / 4))
 			node_a = node_a->next;
 		else
 			node_a = node_a->prev;
