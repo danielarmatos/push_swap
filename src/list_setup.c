@@ -1,16 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file01.c                                           :+:      :+:    :+:   */
+/*   list_setup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 18:45:58 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/22 12:03:18 by dreis-ma         ###   ########.fr       */
+/*   Created: 2023/04/25 19:01:10 by dreis-ma          #+#    #+#             */
+/*   Updated: 2023/04/25 19:01:14 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
+
+void	sort_list(t_stack **stack_a, int len)
+{
+	t_stack	**stack_b;
+
+	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
+	if (check_if_sorted((*stack_a), len) != 1)
+	{
+		if (len == 2)
+			sort_two(stack_a);
+		else if (len == 3)
+			sort_three(stack_a);
+		else if (len == 4)
+			sort_four(stack_a, stack_b);
+		else if (len == 5)
+			sort_five(stack_a, stack_b);
+		else
+			sort_middle(stack_a, stack_b);
+	}
+}
 
 void	link_first(t_stack **stack)
 {
@@ -59,25 +80,17 @@ void	create_linked_list(int *int_arr, int len)
 	len = i;
 	i = 0;
 	node = (*stack_a);
-	while (i < len)
-	{
-	//	ft_printf("%i\n", node->nb);
-		node = node->next;
-		i++;
-	}
-	i = 0;
 	get_stack_len(stack_a);
 	get_max(stack_a);
 	get_min(stack_a);
 	sort_list(stack_a, len);
 	node = (*stack_a);
-	/*while (i < len)
+	while (i < len)
 	{
 		node = (*stack_a);
-	//	ft_printf("%i\n", (*stack_a)->nb);
 		(*stack_a) = (*stack_a)->next;
 		free (node);
 		i++;
 	}
-	free(stack_a);*/
+	free(stack_a);
 }

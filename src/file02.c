@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:54:33 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 18:17:02 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:48:07 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,29 +122,3 @@ int	check_if_sorted(t_stack *stack, int len)
 	return (1);
 }
 
-
-void	sort_list(t_stack **stack_a, int len)
-{
-	t_stack	**stack_b;
-	//int nb;
-
-	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
-	if (check_if_sorted((*stack_a), len) == 1)
-	{
-	//	ft_printf("\nList is sorted.\n");
-	}
-	else
-	{
-	//	ft_printf("\nList is NOT sorted.\n\n");
-		if (len == 2)
-			sort_two(stack_a);
-		else if (len == 3)
-			sort_three(stack_a);
-		else if (len == 4)
-			sort_four(stack_a, stack_b);
-		else if (len == 5)
-			sort_five(stack_a, stack_b);
-		else
-			sort_middle(stack_a, stack_b);
-	}
-}

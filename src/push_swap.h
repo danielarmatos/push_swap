@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:25:19 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 18:09:39 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:55:02 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,12 @@ int		check_if_numbers(char **arr, int len);
 
 void	create_linked_list(int *int_arr, int len);
 t_stack	*new_node(int nb, t_stack *next_stack);
-void	sort_list(t_stack **stack_a, int len);
+
+int		check_if_sorted(t_stack *stack, int len);
+void	sort_two(t_stack **stack);
+void	sort_three(t_stack **stack);
+void	sort_four(t_stack **stack_a, t_stack **stack_b);
+void	sort_five(t_stack **stack_a, t_stack **stack_b);
 
 void	swap(t_stack **stack, char name);
 void	rotate(t_stack **stack, int len, char name);

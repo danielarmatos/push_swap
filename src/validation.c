@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:36:38 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/22 21:00:48 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:43:20 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int	*convert_to_int(char **arr, int len)
 		return (0);
 	while (i < len)
 	{
-		//ft_printf("%s\n", arr[i]);
 		if (arr[i][0] == '-' || arr[i][0] == '+')
 			if (!arr[i][1])
 				return (0);
-	//	ft_printf("\natol: %i\n", ft_atol(arr[i]));
 		if (ft_atol(arr[i]) == 0 && arr[i][0] != '0')
 			return (0);
 		if (ft_atol(arr[i]) < INT_MAX && ft_atol(arr[i]) > INT_MIN)
