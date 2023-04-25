@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:38:38 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/22 13:17:16 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:23:39 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	get_max(t_stack **stack)
 		node = node->next;
 		len--;
 	}
-	//ft_printf("\nmax: %i\n", max);
 	return (max);
 }
 
@@ -68,6 +67,20 @@ int	get_min(t_stack **stack)
 		node = node->next;
 		len--;
 	}
-	//ft_printf("\nmin: %i\n", min);
 	return (min);
+}
+
+int	check_if_sorted(t_stack *stack, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < (len - 1))
+	{
+		if (stack->nb > stack->next->nb)
+			return (0);
+		stack = stack->next;
+		i++;
+	}
+	return (1);
 }
