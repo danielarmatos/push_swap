@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:45:51 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/24 19:28:56 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:07:44 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,29 +142,65 @@ int	check_min_max(t_stack **stack_a, t_stack **stack_b)
 void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
 {
 	t_stack	*node;
-	int		nb;
-	int		j;
+	int		i;
 
-	node = (*stack_b);
-	nb = (*stack_a)->nb;
-	j = 0;
-	if (utils->reverse == 0)
+	node = (*stack_a);
+	i = 0;
+	while (node->nb != utils->nb)
 	{
-		while (j < utils->best_moves)
-		{
-			rotate(stack_b, get_stack_len(stack_b), 'b');
-			j++;
-		}
+		node = node->next;
+		i++;
 	}
+	if (i > (utils->len_a / 2))
+		while ((*stack_a)->nb != utils->nb)
+			reverse_rotate(stack_a, utils->len_a, 'a');
 	else
-	{
-		while (j < utils->best_moves)
-		{
+		while ((*stack_a)->nb != utils->nb)
+			rotate(stack_a, utils->len_a, 'a');
+	i = 0;
+	if (utils->nb_index_b > (utils->len_b / 2))
+		while (!((*stack_a)->nb > (*stack_b)->nb && (*stack_a)->nb < (*stack_b)->prev->nb))
 			reverse_rotate(stack_b, get_stack_len(stack_b), 'b');
-			j++;
-		}
-	}
+	else
+		while (!((*stack_a)->nb > (*stack_b)->nb && (*stack_a)->nb < (*stack_b)->prev->nb))
+			rotate(stack_b, get_stack_len(stack_b), 'b');
 	push(stack_a, stack_b, 'b');
+}
+
+t_utils	*setup_utils(t_stack **stack_a, t_stack **stack_b)
+{
+	t_utils	*utils;
+
+	utils = malloc (sizeof(t_utils));
+	utils->len_b = get_stack_len(stack_b);
+	utils->len_a = get_stack_len(stack_a);
+	utils->max = get_max(stack_b);
+	utils->min = get_min(stack_b);
+	utils->curr_moves = 0;
+	return (utils);
+}
+
+void	check_best_move2(t_stack *node_a, t_stack *node_b, t_utils *utils)
+{
+	int	mov;
+	int	i;
+
+	i = 1;
+	while (!(node_a->nb < node_b->nb && node_a->nb > node_b->next->nb))
+	{
+		i++;
+		node_b = node_b->next;
+	}
+	mov = i;
+	if (mov > (utils->len_b / 2))
+		mov = utils->len_b - mov;
+	mov = mov + utils->curr_moves;
+	if (!utils->best_moves || mov < utils->best_moves)
+	{
+		utils->nb_index_b = i;
+		utils->best_moves = mov;
+		utils->nb = node_a->nb;
+	}
 }
 
 void	check_best_move(t_stack **stack_a, t_stack **stack_b)
@@ -173,41 +209,25 @@ void	check_best_move(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*node_b;
 	t_utils	*utils;
 	int		i;
-	int		mov;
 
-	utils = malloc (sizeof(t_utils));
+	utils = setup_utils(stack_a, stack_b);
 	if (check_min_max(stack_a, stack_b) == 1)
 		return ;
-	node_b = (*stack_b);
 	node_a = (*stack_a);
-	utils->len = get_stack_len(stack_b);
-	mov = 1;
 	i = 0;
-	while (i < 8)
+	while (i <= 8)
 	{
-		while (!(node_a->nb < node_b->nb && node_a->nb > node_b->next->nb))
+		node_b = (*stack_b);
+		if (node_a->nb < utils->max && node_a->nb > utils->min)
+			check_best_move2(node_a, node_b, utils);
+		utils->curr_moves = utils->curr_moves + 1;
+		if (i == 4)
 		{
-			mov++;
-			node_b = node_b->next;
-		}
-		if (mov > (utils->len / 2))
-		{
-			mov = utils->len - i;
-			if (!utils->best_moves || mov < utils->best_moves)
-			{
-				utils->best_moves = mov;
-				utils->reverse = 1;
-			}
-		}
-		else if (!utils->best_moves || mov < utils->best_moves)
-		{
-			utils->best_moves = mov;
-			utils->reverse = 0;
-		}
-		if (i < 4)
-			node_a = node_a->next;
-		else if (i == 4)
+			utils->curr_moves = 1;
 			node_a = (*stack_a)->prev;
+		}
+		else if (i < 4)
+			node_a = node_a->next;
 		else
 			node_a = node_a->prev;
 		i++;
