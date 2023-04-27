@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:29:54 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 19:30:40 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:07:30 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,12 @@ t_utils	*setup_utils(t_stack **stack_a, t_stack **stack_b)
 	utils->max = get_max(stack_b);
 	utils->min = get_min(stack_b);
 	utils->curr_moves = 0;
+	utils->nb_index_a = 0;
+	utils->nb_index_b = 0;
+	utils->nb = 0;
+	utils->ra = 0;
+	utils->rb = 0;
+	utils->rra = 0;
+	utils->rrb = 0;
 	return (utils);
 }

@@ -6,10 +6,9 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:01:10 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 19:01:14 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:25:26 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -29,7 +28,7 @@ void	sort_list(t_stack **stack_a, int len)
 		else if (len == 5)
 			sort_five(stack_a, stack_b);
 		else
-			sort_middle(stack_a, stack_b);
+			sort_big(stack_a, stack_b);
 	}
 }
 

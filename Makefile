@@ -14,7 +14,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 DEPS = libft/libft.a
 
-SRC = src/push_swap.c src/validation.c src/list_setup.c src/sort_small.c src/sort_big.c src/sort_big_2.c src/sort_big_utils.c src/operations.c src/utils.c
+SRC = src/push_swap.c src/validation.c src/list_setup.c src/sort_small.c src/sort_big.c src/sort_big_2.c src/sort_big_3.c src/sort_big_utils.c src/operations.c src/utils.c
 
 OBJ = $(SRC:.c=.o)
 

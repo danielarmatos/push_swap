@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:25:19 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 19:31:34 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:06:56 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_utils
 {
 	int				nb;
 	int				nb_index_b;
+	int				nb_index_a;
 	int				best_moves;
 	int				curr_moves;
 	int				reverse;
@@ -36,6 +37,10 @@ typedef struct s_utils
 	int				len_b;
 	int				max;
 	int				min;
+	int				ra;
+	int				rb;
+	int				rra;
+	int				rrb;
 }					t_utils;
 
 int		check_doubles(int *arr, int len);
@@ -61,9 +66,8 @@ int		get_max(t_stack **stack);
 int		get_min(t_stack **stack);
 
 void	sort_big(t_stack **stack_a, t_stack **stack_b);
-int		check_min_max(t_stack **stack_a, t_stack **stack_b);
 void	check_best_move(t_stack **stack_a, t_stack **stack_b);
-
+void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils);
 
 void	sort_end(t_stack **stack_a);
 t_utils	*setup_utils(t_stack **stack_a, t_stack **stack_b);

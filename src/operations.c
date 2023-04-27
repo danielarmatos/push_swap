@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:56:42 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 19:20:48 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:16:58 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	rotate(t_stack **stack, int len, char name)
 	}
 	if (name == 'a')
 		ft_printf("ra\n");
-	else
+	else if (name == 'b')
 		ft_printf("rb\n");
 }
 
@@ -61,7 +61,7 @@ void	reverse_rotate(t_stack **stack, int len, char name)
 	}
 	if (name == 'a')
 		ft_printf("rra\n");
-	else
+	else if (name == 'b')
 		ft_printf("rrb\n");
 }
 
