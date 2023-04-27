@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:33:00 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 16:15:39 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/27 20:05:54 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void	check_best_default(t_stack *node_a, t_stack *node_b, t_utils *utils)
 {
 	int	mov;
 	int	i;
+	int	curr_b_rev;
 
 	i = 1;
+	curr_b_rev = 0;
 	while (!(node_a->nb < node_b->nb && node_a->nb > node_b->next->nb))
 	{
 		i++;
@@ -52,8 +54,17 @@ void	check_best_default(t_stack *node_a, t_stack *node_b, t_utils *utils)
 	}
 	mov = i;
 	if (mov > (utils->len_b / 2))
+	{
 		mov = utils->len_b - mov;
-	mov = mov + utils->curr_moves;
+		curr_b_rev = 1;
+	}
+	if (curr_b_rev == utils->curr_a_rev)
+	{
+		if (utils->curr_moves > mov)
+			mov = utils->curr_moves;
+	}
+	else
+		mov = mov + utils->curr_moves;
 	if (!utils->best_moves || mov < utils->best_moves)
 	{
 		utils->nb_index_b = i;
@@ -72,7 +83,8 @@ void	check_best_move(t_stack **stack_a, t_stack **stack_b)
 	utils = setup_utils(stack_a, stack_b);
 	node_a = (*stack_a);
 	i = 0;
-	while (i <= (utils->len_a / 2))
+	utils->curr_a_rev = 0;
+	while (i <= (utils->len_a))
 	{
 		node_b = (*stack_b);
 		if (node_a->nb < utils->max && node_a->nb > utils->min)
@@ -80,12 +92,13 @@ void	check_best_move(t_stack **stack_a, t_stack **stack_b)
 		else
 			check_best_min_max(node_a, node_b, utils);
 		utils->curr_moves = utils->curr_moves + 1;
-		if (i == (utils->len_a / 4))
+		if (i == (utils->len_a / 2))
 		{
+			utils->curr_a_rev = 1;
 			utils->curr_moves = 1;
 			node_a = (*stack_a)->prev;
 		}
-		else if (i < (utils->len_a / 4))
+		else if (i < (utils->len_a / 2))
 			node_a = node_a->next;
 		else
 			node_a = node_a->prev;
