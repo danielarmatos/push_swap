@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:36:38 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/25 18:43:20 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:48:19 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	*convert_to_int(char **arr, int len)
 				return (0);
 		if (ft_atol(arr[i]) == 0 && arr[i][0] != '0')
 			return (0);
-		if (ft_atol(arr[i]) < INT_MAX && ft_atol(arr[i]) > INT_MIN)
-			int_arr[i] = ft_atol(arr[i]);
+		if (ft_atol(arr[i]) <= INT_MAX && ft_atol(arr[i]) >= INT_MIN)
+			int_arr[i] = (int) ft_atol(arr[i]);
 		else
 		{
-			ft_printf("\nError\n%s is not an int.\n", arr[i]);
+			write(2, "Error\n", 6);
 			free(int_arr);
 			return (0);
 		}

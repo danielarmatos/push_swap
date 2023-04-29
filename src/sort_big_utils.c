@@ -6,11 +6,52 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:29:54 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 18:07:30 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:29:50 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_rotations_02(t_utils *utils)
+{
+	while (utils->rrb > 0)
+	{
+		ft_printf("rrb\n");
+		utils->rrb--;
+	}
+	while (utils->ra > 0)
+	{
+		ft_printf("ra\n");
+		utils->ra--;
+	}
+	while (utils->rb > 0)
+	{
+		ft_printf("rb\n");
+		utils->rb--;
+	}
+}
+
+void	print_rotations(t_utils *utils)
+{
+	while (utils->rra > 0 && utils->rrb > 0)
+	{
+		ft_printf("rrr\n");
+		utils->rra--;
+		utils->rrb--;
+	}
+	while (utils->ra > 0 && utils->rb > 0)
+	{
+		ft_printf("rr\n");
+		utils->ra--;
+		utils->rb--;
+	}
+	while (utils->rra > 0)
+	{
+		ft_printf("rra\n");
+		utils->rra--;
+	}
+	print_rotations_02(utils);
+}
 
 void	sort_end(t_stack **stack_a)
 {
@@ -48,6 +89,7 @@ t_utils	*setup_utils(t_stack **stack_a, t_stack **stack_b)
 	utils->curr_moves = 0;
 	utils->nb_index_a = 0;
 	utils->nb_index_b = 0;
+	utils->best_moves = 0;
 	utils->nb = 0;
 	utils->ra = 0;
 	utils->rb = 0;

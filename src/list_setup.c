@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:01:10 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 15:25:26 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:24:48 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	sort_list(t_stack **stack_a, int len)
 	t_stack	**stack_b;
 
 	stack_b = (t_stack **) malloc(sizeof(t_stack *) * len);
+	(*stack_b) = 0;
 	if (check_if_sorted((*stack_a), len) != 1)
 	{
 		if (len == 2)
@@ -30,6 +31,7 @@ void	sort_list(t_stack **stack_a, int len)
 		else
 			sort_big(stack_a, stack_b);
 	}
+	free(stack_b);
 }
 
 void	link_first(t_stack **stack)
@@ -70,18 +72,14 @@ void	create_linked_list(int *int_arr, int len)
 
 	i = len;
 	stack_a = (t_stack **) malloc(sizeof(t_stack *) * len);
-	while (len > 0)
+	(*stack_a) = 0;
+	while (i > 0)
 	{
-		add_node(stack_a, create_node(int_arr[len - 1]));
-		len--;
+		add_node(stack_a, create_node(int_arr[i - 1]));
+		i--;
 	}
 	link_first(stack_a);
-	len = i;
-	i = 0;
-	node = (*stack_a);
 	get_stack_len(stack_a);
-	get_max(stack_a);
-	get_min(stack_a);
 	sort_list(stack_a, len);
 	node = (*stack_a);
 	while (i < len)

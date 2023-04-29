@@ -6,15 +6,11 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:33:00 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 20:05:54 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:09:49 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* The function check_best_min_max is used when the number from the stack_a
-that we are currently evaluating is greater or smaller than the max or min value
-from the stack_b */
 
 void	check_best_min_max(t_stack *node_a, t_stack *node_b, t_utils *utils)
 {
@@ -32,6 +28,16 @@ void	check_best_min_max(t_stack *node_a, t_stack *node_b, t_utils *utils)
 		mov = utils->len_b - mov;
 	mov = mov + utils->curr_moves;
 	if (!utils->best_moves || mov < utils->best_moves)
+	{
+		utils->nb_index_b = i;
+		utils->best_moves = mov;
+		utils->nb = node_a->nb;
+	}
+}
+
+void	check_best_default_2(t_utils *utils, int mov, int i, t_stack *node_a)
+{
+	if (!(utils->best_moves) || mov < utils->best_moves)
 	{
 		utils->nb_index_b = i;
 		utils->best_moves = mov;
@@ -65,33 +71,25 @@ void	check_best_default(t_stack *node_a, t_stack *node_b, t_utils *utils)
 	}
 	else
 		mov = mov + utils->curr_moves;
-	if (!utils->best_moves || mov < utils->best_moves)
-	{
-		utils->nb_index_b = i;
-		utils->best_moves = mov;
-		utils->nb = node_a->nb;
-	}
+	check_best_default_2(utils, mov, i, node_a);
 }
 
-void	check_best_move(t_stack **stack_a, t_stack **stack_b)
+void	check_best_move_2(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
 {
+	int		i;
 	t_stack	*node_a;
 	t_stack	*node_b;
-	t_utils	*utils;
-	int		i;
 
-	utils = setup_utils(stack_a, stack_b);
+	i = -1;
 	node_a = (*stack_a);
-	i = 0;
-	utils->curr_a_rev = 0;
-	while (i <= (utils->len_a))
+	while (++i <= (utils->len_a))
 	{
 		node_b = (*stack_b);
 		if (node_a->nb < utils->max && node_a->nb > utils->min)
 			check_best_default(node_a, node_b, utils);
 		else
 			check_best_min_max(node_a, node_b, utils);
-		utils->curr_moves = utils->curr_moves + 1;
+		utils->curr_moves++;
 		if (i == (utils->len_a / 2))
 		{
 			utils->curr_a_rev = 1;
@@ -102,7 +100,16 @@ void	check_best_move(t_stack **stack_a, t_stack **stack_b)
 			node_a = node_a->next;
 		else
 			node_a = node_a->prev;
-		i++;
 	}
+}
+
+void	check_best_move(t_stack **stack_a, t_stack **stack_b)
+{
+	t_utils	*utils;
+
+	utils = setup_utils(stack_a, stack_b);
+	utils->curr_a_rev = 0;
+	check_best_move_2(stack_a, stack_b, utils);
 	prepare_to_push(stack_a, stack_b, utils);
+	free(utils);
 }

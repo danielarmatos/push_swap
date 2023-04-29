@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:56:42 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 17:16:58 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:54:16 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,11 @@ void	reverse_rotate(t_stack **stack, int len, char name)
 		ft_printf("rrb\n");
 }
 
-void	push(t_stack **stack_1, t_stack **stack_2, char name)
+void	push_2(t_stack **stack_2, t_stack *temp)
 {
-	t_stack	*temp;
-	t_stack	*node;
 	int		nb;
+	t_stack	*node;
 
-	temp = (*stack_1);
-	if (get_stack_len(stack_1) == 1)
-		(*stack_1) = NULL;
-	else
-	{
-		(*stack_1) = temp->next;
-		(*stack_1)->prev = temp->prev;
-		(*stack_1)->prev->next = (*stack_1);
-	}
 	if (!(*stack_2))
 	{
 		temp->next = temp;
@@ -98,6 +88,22 @@ void	push(t_stack **stack_1, t_stack **stack_2, char name)
 		node->next = temp;
 		(*stack_2) = temp;
 	}
+}
+
+void	push(t_stack **stack_1, t_stack **stack_2, char name)
+{
+	t_stack	*temp;
+
+	temp = (*stack_1);
+	if (get_stack_len(stack_1) == 1)
+		(*stack_1) = NULL;
+	else
+	{
+		(*stack_1) = temp->next;
+		(*stack_1)->prev = temp->prev;
+		(*stack_1)->prev->next = (*stack_1);
+	}
+	push_2(stack_2, temp);
 	if (name == 'a')
 		ft_printf("pa\n");
 	else

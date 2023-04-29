@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:24:38 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/08 17:49:03 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:47:28 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	push_swap(char **arr)
 			if (check_doubles(int_arr, len) == 1)
 				create_linked_list(int_arr, len);
 			else
-				ft_printf("\nError\nDuplicated numbers.\n");
+				write(2, "Error\n", 6);
 		}
 		free(int_arr);
 	}
 	else
-		ft_printf("\nError\nSome arguments aren't numbers.\n");
+		write(2, "Error\n", 6);
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 19:27:29 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 20:16:17 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/27 20:22:37 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,6 @@ void	start_sorting(t_stack **stack_a, t_stack **stack_b)
 	{
 		max = get_max(stack_b);
 		min = get_min(stack_b);
-		/*if ((*stack_b)->nb == max && (*stack_b)->prev->nb == min)
-			sort_min_max(stack_a, stack_b, min, max);
-		else
-			sort_default(stack_a, stack_b);*/
 		check_best_move(stack_a, stack_b);
 	}
 }

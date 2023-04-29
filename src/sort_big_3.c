@@ -6,47 +6,11 @@
 /*   By: dreis-ma <dreis-ma@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:14:45 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 18:18:38 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:58:25 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_rotations(t_utils *utils)
-{
-	while (utils->rra > 0 && utils->rrb > 0)
-	{
-		ft_printf("rrr\n");
-		utils->rra--;
-		utils->rrb--;
-	}
-	while (utils->ra > 0 && utils->rb > 0)
-	{
-		ft_printf("rr\n");
-		utils->ra--;
-		utils->rb--;
-	}
-	while (utils->rra > 0)
-	{
-		ft_printf("rra\n");
-		utils->rra--;
-	}
-	while (utils->rrb > 0)
-	{
-		ft_printf("rrb\n");
-		utils->rrb--;
-	}
-	while (utils->ra > 0)
-	{
-		ft_printf("ra\n");
-		utils->ra--;
-	}
-	while (utils->rb > 0)
-	{
-		ft_printf("rb\n");
-		utils->rb--;
-	}
-}
 
 void	rotate_min_max(t_stack **stack_b, t_utils *utils)
 {
@@ -90,18 +54,8 @@ void	rotate_default(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
 	}
 }
 
-void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
+void	prepare_to_push_2(t_stack **stack_a, t_utils *utils, int i)
 {
-	t_stack	*node;
-	int		i;
-
-	node = (*stack_a);
-	i = 0;
-	while (node->nb != utils->nb)
-	{
-		node = node->next;
-		i++;
-	}
 	if (i > (utils->len_a / 2))
 	{
 		while ((*stack_a)->nb != utils->nb)
@@ -118,7 +72,21 @@ void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
 			utils->ra++;
 		}
 	}
+}
+
+void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
+{
+	t_stack	*node;
+	int		i;
+
+	node = (*stack_a);
 	i = 0;
+	while (node->nb != utils->nb)
+	{
+		node = node->next;
+		i++;
+	}
+	prepare_to_push_2(stack_a, utils, i);
 	if ((*stack_a)->nb < utils->max && (*stack_a)->nb > utils->min)
 		rotate_default(stack_a, stack_b, utils);
 	else
