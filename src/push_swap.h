@@ -6,7 +6,7 @@
 /*   By: dreis-ma <dreis-ma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:25:19 by dreis-ma          #+#    #+#             */
-/*   Updated: 2023/04/27 18:06:56 by dreis-ma         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:41:11 by dreis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_utils
 	int				nb_index_a;
 	int				best_moves;
 	int				curr_moves;
+	int				curr_a_rev;
 	int				reverse;
 	int				len_a;
 	int				len_b;
@@ -48,7 +49,6 @@ int		*convert_to_int(char **arr, int len);
 int		check_if_numbers(char **arr, int len);
 
 void	create_linked_list(int *int_arr, int len);
-t_stack	*new_node(int nb, t_stack *next_stack);
 
 int		check_if_sorted(t_stack *stack, int len);
 void	sort_two(t_stack **stack);
@@ -68,6 +68,8 @@ int		get_min(t_stack **stack);
 void	sort_big(t_stack **stack_a, t_stack **stack_b);
 void	check_best_move(t_stack **stack_a, t_stack **stack_b);
 void	prepare_to_push(t_stack **stack_a, t_stack **stack_b, t_utils *utils);
+void	print_rotations(t_utils *utils);
+void	print_rotations_02(t_utils *utils);
 
 void	sort_end(t_stack **stack_a);
 t_utils	*setup_utils(t_stack **stack_a, t_stack **stack_b);

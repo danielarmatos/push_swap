@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="push_swap" targetName="deps" />
+      <config projectName="push_swap" targetName="all" />
+      <config projectName="push_swap" targetName="fclean" />
+      <config projectName="push_swap" targetName="re" />
+      <config projectName="push_swap" targetName="push_swap" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1adb3a31-8023-4587-bb06-93f89f3590a8" name="Changes" comment="All done and ready to submit">
+      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file02.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file03.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/push_swap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sort_big.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/sort_big.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="push_swap" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="push_swap" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="3.3" />
+  </component>
+  <component name="ProjectId" id="2OT7WQ0cpPvJVOJmd8fF3WdwGGv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/nfs/homes/dreis-ma/42-Cursus/07-push_wap/push_swap/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Makefile Application.all">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="6 12 3 2 13 4 8 10 5 14 11 7 1 9 " REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="push_swap" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/push_swap">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deps" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="push_swap" TARGET_NAME="deps" CONFIG_NAME="deps" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="push_swap" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="push_swap" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="push_swap" TARGET_NAME="push_swap" CONFIG_NAME="push_swap" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="push_swap" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Makefile Application.all" />
+      <item itemvalue="Makefile Application.deps" />
+      <item itemvalue="Makefile Application.fclean" />
+      <item itemvalue="Makefile Application.push_swap" />
+      <item itemvalue="Makefile Application.re" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1adb3a31-8023-4587-bb06-93f89f3590a8" name="Changes" comment="" />
+      <created>1681572749062</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681572749062</updated>
+      <workItem from="1681572750095" duration="1458000" />
+      <workItem from="1681575531759" duration="1924000" />
+      <workItem from="1681577473145" duration="128000" />
+      <workItem from="1681577616886" duration="7198000" />
+      <workItem from="1681830131118" duration="12554000" />
+      <workItem from="1681924865816" duration="991000" />
+      <workItem from="1681926560153" duration="8575000" />
+      <workItem from="1682002515740" duration="10154000" />
+      <workItem from="1682017613262" duration="4648000" />
+      <workItem from="1682024349463" duration="569000" />
+      <workItem from="1682159615562" duration="18540000" />
+      <workItem from="1682183649123" duration="1006000" />
+      <workItem from="1682184796263" duration="8085000" />
+      <workItem from="1682349458808" duration="5844000" />
+      <workItem from="1682433797228" duration="16515000" />
+      <workItem from="1682604811528" duration="7207000" />
+      <workItem from="1682613563555" duration="4939000" />
+      <workItem from="1682620303884" duration="1474000" />
+      <workItem from="1682622342195" duration="900000" />
+      <workItem from="1682623263174" duration="42000" />
+      <workItem from="1682623346206" duration="815000" />
+      <workItem from="1682773138714" duration="8132000" />
+      <workItem from="1682781517516" duration="2000" />
+      <workItem from="1682781547869" duration="500000" />
+      <workItem from="1682782212911" duration="3112000" />
+      <workItem from="1682785441800" duration="2590000" />
+      <workItem from="1682789216740" duration="586000" />
+      <workItem from="1682954884304" duration="789000" />
+    </task>
+    <task id="LOCAL-00001" summary="add gitignore to libft">
+      <created>1681577527164</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681577527164</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created a circular linked list">
+      <created>1681577783335</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681577783336</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finished sorting a stack with 3 numbers">
+      <created>1681582575143</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681582575143</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Started to sort stack with 5 numbers and did the push operation">
+      <created>1681586012973</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681586012973</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Started to sort stack with 5 numbers and did the push operation. Changed everything to be able to use a double pointer stack">
+      <created>1681927244867</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681927244867</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Completed push function">
+      <created>1681937306112</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681937306112</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Sorting stack with 5 elements">
+      <created>1682013778312</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682013778312</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Finished sorting stack with 5 elements">
+      <created>1682019350461</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682019350461</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Started to sort a stack with 10 numbers">
+      <created>1682024131761</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682024131761</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Started to sort a stack with 10 numbers">
+      <created>1682024916149</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682024916149</updated>
+    </task>
+    <task id="LOCAL-00011" summary="It's already sorting a stack with &lt;=100 numbers, but it's still very redundant and using a lot of movements">
+      <created>1682166913292</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682166913292</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Improved the algorithm to sort 100 numbers, but it still needs more work">
+      <created>1682190361358</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682190361358</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Improved the algorithm to sort 100 numbers, but it still needs more work">
+      <created>1682193911264</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682193911264</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Tested a new function to improve the sorting of 100 numbers">
+      <created>1682361046032</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682361046032</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Tested a new function to improve the sorting of 100 numbers">
+      <created>1682442475245</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682442475245</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Successfully improved the sorting of 100 numbers. Still need to improve the sorting of 500 numbers.">
+      <created>1682444569950</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682444569950</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Successfully improved the sorting of 100 numbers. Still need to improve the sorting of 500 numbers.">
+      <created>1682445748481</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682445748481</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Successfully improved the sorting of 500 numbers">
+      <created>1682451717153</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682451717153</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Implemented the rr and rrr to improve the algorithm">
+      <created>1682616352712</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1682616352712</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Implemented the rr and rrr to improve the algorithm">
+      <created>1682623302222</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682623302222</updated>
+    </task>
+    <task id="LOCAL-00021" summary="All done and ready to submit">
+      <created>1682789306890</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1682789306890</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add gitignore to libft" />
+    <MESSAGE value="Created a circular linked list" />
+    <MESSAGE value="Finished sorting a stack with 3 numbers" />
+    <MESSAGE value="Started to sort stack with 5 numbers and did the push operation" />
+    <MESSAGE value="Started to sort stack with 5 numbers and did the push operation. Changed everything to be able to use a double pointer stack" />
+    <MESSAGE value="Completed push function" />
+    <MESSAGE value="Sorting stack with 5 elements" />
+    <MESSAGE value="Finished sorting stack with 5 elements" />
+    <MESSAGE value="Started to sort a stack with 10 numbers" />
+    <MESSAGE value="It's already sorting a stack with &lt;=100 numbers, but it's still very redundant and using a lot of movements" />
+    <MESSAGE value="Improved the algorithm to sort 100 numbers, but it still needs more work" />
+    <MESSAGE value="Tested a new function to improve the sorting of 100 numbers" />
+    <MESSAGE value="Successfully improved the sorting of 100 numbers. Still need to improve the sorting of 500 numbers." />
+    <MESSAGE value="Successfully improved the sorting of 500 numbers" />
+    <MESSAGE value="Implemented the rr and rrr to improve the algorithm" />
+    <MESSAGE value="All done and ready to submit" />
+    <option name="LAST_COMMIT_MESSAGE" value="All done and ready to submit" />
+  </component>
+</project>
